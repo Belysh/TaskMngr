@@ -1,0 +1,220 @@
+@import 'main-styles.scss';
+
+
+
+.menu {
+    background-color: $defBlue;
+    font-family: $defFont;
+    font-size: 20pt;
+    width: 15%;
+    min-height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 300px;
+    overflow: hidden;
+
+    @media screen and (max-width: 1300px) {
+        &{
+            animation: hide 1s;
+            width: 0px;
+            min-width: 0px;
+            max-width: 0px;
+        }
+        @keyframes hide {
+            0% {
+                width: 15%;
+                min-width: 300px;
+            }
+            100% {
+                width: 0%;
+                min-width: 0px;
+                max-width: 0px;
+            }
+        }
+    
+    }
+    @media screen and (min-width: 1300px) {
+        &{
+            animation: open 1s;
+            width: 15%;
+            min-width: 300px;
+        }
+        @keyframes open {
+            0% {
+                width: 0%;
+                min-width: 0px;
+                max-width: 0%;
+            }
+            
+            100% {
+                width: 15%;
+                min-width: 300px;
+                max-width: 15%;
+            }
+        
+        }
+    
+    }
+
+    &__wrapper {
+        position: fixed;
+        @media screen and (max-width: 1300px) {
+            display: none;
+            
+        }
+        @media screen and (min-width: 1300px) {
+            opacity: 1;
+            animation: opac 1.5s;
+
+            @keyframes opac {
+                0% {
+                    opacity: 0;
+                }
+                
+                100% {
+                    opacity: 1;
+                }
+            
+            }
+        }
+    }
+
+    &__logo {
+        margin: 50px 0 30px 0;
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        img {
+            width: 3rem;
+            cursor: pointer;
+        }
+        div {
+            font-size: 2rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width:max-content;
+
+        &-item {
+            cursor: pointer;
+            margin: 0;
+            width: 100%;
+            &:hover {
+                background-color: $defBlueHover;
+                border-radius: 5px;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+                width: auto;
+                padding: .5rem 2rem .5rem 2rem;
+                display: block;
+            }
+            a {
+                span {
+                    display: flex;
+                    align-items: center;
+                    &::before {
+                        content: '';
+                        display: block;
+                        height: 20px;
+                        width: 20px; 
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        &-item--dashboard > a > span::before {
+            //background-image: './images/icons/dashboard.svg';
+            background-image: url(/images/icons/dashboard.svg);
+            background-size: contain;
+        }
+        &-item--tasks > a > span::before {
+            //background-image: './images/icons/dashboard.svg';
+            background-image: url(/images/icons/tasks.svg);
+            background-size: contain;
+        }
+        &-item--users > a > span::before {
+            //background-image: './images/icons/dashboard.svg';
+            background-image: url(/images/icons/users.svg);
+            background-size: contain;
+        }
+    }
+}
+
+
+
+.menu--opened {
+    /*background-color: $defBlue;
+    font-family: $defFont;
+    font-size: 20pt;
+    width: 15vw;
+    min-height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;*/
+    min-width: 100%;
+    //position: absolute;
+    background-color: rgba(34, 42, 69, .97);;
+    //left: 0px;
+    z-index: 20;
+    animation: hides 1s;
+    @keyframes hides {
+        0% {
+            width: 0%;
+            min-width: 0px;
+            max-width: 0%;
+        }
+        
+        100% {
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .menu__wrapper {
+        display: block;
+        opacity: 1;
+    }
+    .pass-modal__cancel-button--menu {
+        margin: 20px;
+        @media screen and (max-width: 1300px) {
+            opacity: 1;
+            animation: opac 1s;
+    
+            @keyframes opac {
+                0% {
+                    opacity: 0;
+                }
+
+                80% {
+                    opacity: 0;
+                }
+
+                90% {
+                    opacity: 0.5;
+                }
+                
+                100% {
+                    opacity: 1;
+                }
+            
+            }
+        }
+    }
+}

@@ -1,0 +1,448 @@
+@import 'main-styles.scss';
+
+.users-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.users-title { 
+    padding: 30px;
+    background-color:rgb(238, 129, 220);
+    border-radius: 50px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    
+
+    &__filters-container {
+        align-items: flex-end;
+        @media screen and (max-width: 1000px) {
+            &{
+                display: flex;
+                flex-direction: column;
+                
+            }
+          }
+    }
+
+    &__button, &__select {
+        padding: 10px 20px 10px 20px;
+        height: min-content; 
+        box-sizing: border-box;
+        border-radius: 30px;
+        border: 0px;
+        background-color: rgb(40, 121, 226);
+        font-size: 14pt;
+        outline: 0;
+        outline-offset: 0;
+        color: #ffffff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #347bff;
+        }
+        &:active {
+            background-color: #0e44a8;
+        }
+    }
+
+    &__select {
+        margin-left: 30px;
+        @media screen and (max-width: 1000px) {
+            &{
+                margin-top: 10px;
+            }
+          }
+          @media screen and (max-width: 400px) {
+            &{
+                width: 150px;
+            }
+          }
+    }
+
+    &__button {
+        @media screen and (max-width: 1000px) {
+            &{
+                margin-right: 10px;
+            }
+          }
+    }
+
+    &__search {
+        width: 300px;
+        height: 45px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: 2px solid#a0bce8;
+        font-size: 14pt;
+        padding-left: 15px;
+        outline: 0;
+        outline-offset: 0;
+        color: #11515c;
+
+        &:active, :hover, :focus {
+            outline: 0;
+            outline-offset: 0;
+        }
+        @media screen and (max-width: 600px) {
+            &{
+                width: 150px;
+            }
+          }
+    }
+}
+
+.pass-modal-wrapper {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    top: 0px;
+    left: 0px;
+    &--closed {
+        display: none;
+    }
+}
+
+.pass-modal {
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -150px;
+    margin-left: -250px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    cursor: default;
+    color:#656d80; 
+    font-size: 14pt;
+    font-family: $defFont;
+    box-sizing: border-box;
+    padding: 20px;
+    @media screen and (max-width: 600px) {
+        &{
+            width: 250px;
+            height: 200px;
+            font-size: 11pt;
+            margin-top: -100px;
+            margin-left: -125px;
+        }
+      }
+
+    &__input-wrapper {
+        padding: 10px 0 10px 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__input-container {
+        flex-grow: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 85%;
+        padding-top: 15px;
+    }
+
+    &__container {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+    &__cancel-button {
+        height: 15px;
+        cursor: pointer;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+
+    &__input {
+        width: 220px;
+        height: 30px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: 2px solid#a0bce8;
+        font-size: 14pt;
+        padding-left: 12px;
+        outline: 0;
+        outline-offset: 0;
+        color: #11515c;
+        @media screen and (max-width: 600px) {
+            &{
+                width: 100px;
+            }
+          }
+
+        &:active, :hover, :focus {
+            outline: 0;
+            outline-offset: 0;
+        }
+    }
+
+    &__button {
+        box-sizing: border-box;
+        margin-top: 22px;
+        height: 40px;
+        width: 100px;
+        border-radius: 30px;
+        border: 0px;
+        background-color: $activeGreen;
+        font-size: 14pt;
+        outline: 0;
+        outline-offset: 0;
+        color: #ffffff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #16b138;
+        }
+        &:active {
+            background-color: #175d26;
+        }
+    }
+}
+
+.users-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: $defFont;
+    width: 95%;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    cursor: default;
+    color:#656d80; 
+    font-size: 14pt;
+    @media screen and (max-width: 1000px) {
+        &{
+            font-size: 10pt;
+        }
+      }
+
+    &__button-header {
+        visibility: hidden;
+    }
+
+    &__item {
+        
+        border-bottom: .7px solid gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px 0 20px;
+        
+
+        &-password-button, &-save-button {
+            height: 25px;
+            cursor: pointer;
+        }
+
+        &-select {
+
+            margin-left: -5px;
+            border-radius: 2px;
+            font-size: 14pt;
+            outline: 0;
+            outline-offset: 0;
+            color: #11515c;
+            font-weight: 300;
+        }
+
+        &-cancel-button {
+            height: 15px;
+            cursor: pointer;
+        }
+
+        &-save-button {
+            margin: 0 5px 0 5px;
+        }
+
+        &-input {
+            width: 90%;
+            margin-left: -5px;
+            border-radius: 2px;
+            border: 2px solid red;
+            font-size: 14pt;
+            outline: 0;
+            outline-offset: 0;
+            color: #11515c;
+            font-weight: 300;
+
+            &--active {
+                width: 90%;
+                margin-left: -5px;
+                border-radius: 2px;
+                border: 2px solid $activeGreen;
+                font-size: 14pt;
+                outline: 0;
+                outline-offset: 0;
+                color: #11515c;
+                font-weight: 300;
+
+                &:active, :hover, :focus {
+                    outline: 0;
+                    outline-offset: 0;
+                }
+            }
+
+            &:active, :hover, :focus {
+                outline: 0;
+                outline-offset: 0;
+            }
+        }
+
+        &-status__closed {
+            font-weight: 500;
+            color: red;
+        }
+
+        &-wrapper {
+            width: 100%;
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 0.5fr 1fr 1fr 2fr 1fr 1fr 0fr;
+
+            @media screen and (max-width: 600px) {
+                &{
+                    grid-template-rows: 1fr;
+                    grid-template-columns: 1fr;
+                }
+              }
+        }
+
+        &-id, &-role, &-status, &-name, &-login, &-email, &-button-wrapper {
+            padding: 30px 5px 30px 5px;
+            display: flex;
+            align-items: center;
+            @media screen and (max-width: 600px) {
+                &{
+                    padding: 5px;
+                }
+              }
+        }
+
+        &-id {
+            @media screen and (max-width: 600px) {
+                span::before {
+                    content: 'ID:';
+                    font-weight: 500;
+                    margin-right: 10px;
+                }
+            }
+        }
+        &-login {
+            @media screen and (max-width: 600px) {
+                span::before {
+                    content: 'Login:';
+                    font-weight: 500;
+                    margin-right: 10px;
+                }
+            }
+        }
+        &-name {
+            @media screen and (max-width: 600px) {
+                span::before {
+                    content: 'Name:';
+                    font-weight: 500;
+                    margin-right: 10px;
+                }
+            }
+        }
+        &-email {
+            @media screen and (max-width: 600px) {
+                span::before {
+                    content: 'Email:';
+                    font-weight: 500;
+                    margin-right: 10px;
+                }
+            }
+        }
+        &-role {
+            @media screen and (max-width: 600px) {
+                span::before {
+                    content: 'Role:';
+                    font-weight: 500;
+                    margin-right: 10px;
+                }
+            }
+        }
+        &-status {
+            @media screen and (max-width: 600px) {
+                span::before {
+                    content: 'Role:';
+                    font-weight: 500;
+                    margin-right: 10px;
+                    color: #656d80;
+                }
+            }
+        }
+         
+
+        &-button {
+            padding: 5px 20px 5px 20px;
+            height:min-content;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 30px;
+            border: 0px;
+            background-color: #3a89f1;
+            font-size: 14pt;
+            outline: 0;
+            outline-offset: 0;
+            color: #ffffff;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #0c43a8;
+            }
+            &:active {
+                background-color: #0c3175;
+            }
+
+            @media screen and (max-width: 600px) {
+                &{
+                    font-size: 9pt;
+                    padding: 2px 5px 2px 5px;
+                }
+              }
+        }
+
+        &-status  {
+            &__active {
+                color: $activeGreen;
+                font-weight: 500;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0px;
+        }
+
+        &:first-child {
+            font-weight: 500;
+            font-size: 16pt;
+            @media screen and (max-width: 600px) {
+                &{
+                    display: none;
+                }
+              }
+        }
+
+    }
+}

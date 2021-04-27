@@ -1,0 +1,111 @@
+@import 'main-styles.scss';
+
+.user-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.add-user-form {
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    cursor: default;
+    font-size: 20pt;
+    font-family: $defFont;
+    color:#656d80; 
+    min-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 700px;
+    margin-top: 50px;
+
+    &__input-wrapper {
+        margin-bottom: 20px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+
+        &__column {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__input-text {
+        margin-bottom: 5px;
+    }
+
+    &__input, &__status-select, &__role-select {
+        width: 300px;
+        height: 50px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: 2px solid#a0bce8;
+        font-size: 14pt;
+        padding-left: 15px;
+        outline: 0;
+        outline-offset: 0;
+        color: #11515c;
+
+        &:active, :hover, :focus {
+            outline: 0;
+            outline-offset: 0;
+        }
+    }
+
+    &__submit-button {
+        width: 300px;
+        height: 50px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: 0px;
+        background-color: $activeGreen;
+        font-size: 14pt;
+        outline: 0;
+        outline-offset: 0;
+        color: #ffffff;
+        cursor: pointer;
+        margin-top: 20px;
+
+        &:hover {
+            background-color: #16b138;
+        }
+        &:active {
+            background-color: #175d26;
+        }
+    }
+
+    &__status-select, &__role-select {
+        text-align-last: center;
+        option {
+            text-align-last: center;
+        }
+    }
+
+    &__title {
+        font-size: 32pt;
+        font-weight: bold;
+        margin-bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__validation-results {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 14pt;
+        &__incorrect {
+            color: red;
+            text-align: center;
+        }
+        &__correct {
+            color: $activeGreen;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,300;1,500&display=swap');
+$defFont:'Roboto', sans-serif;
+$defBlue: rgb(34, 42, 69);
+$defBlueHover: #364C5F;
+$activeGreen: #39e382;
+
+div, ul, li {
+    box-sizing: border-box !important;;
+}
+
+body {
+    &::-webkit-scrollbar {
+        width: 7px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(34, 42, 69, 0.3);
+        border-radius: 20px;
+        cursor: pointer;
+        
+    }
+}
+
+#root {
+    min-height: 100vh;
+    font-style: $defFont;
+    font-weight: 300;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #F9F9F9;
+    
+}
+
+.content {
+    padding: 100px 0px 0px 0px;
+    width: 100%;
+    min-height: calc(100vh);
+}
